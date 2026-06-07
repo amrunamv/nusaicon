@@ -383,6 +383,19 @@
                         </table>
                     </div>
                 </section>
+
+                <!-- Section 7 -->
+                <section>
+                    <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-900 text-white text-xs">7</span> 
+                        Integrasi Mobile (Flutter)
+                    </h3>
+                    <p class="mb-4 text-slate-500">Selain Web, NusaIcons juga menyediakan <em>auto-generated Dart File</em> untuk developer Flutter. Unduh file <code class="font-mono text-[11px] bg-slate-100 px-1.5 py-0.5 rounded text-indigo-600 border border-slate-200">nusa_icons.dart</code> dari repositori kami dan gunakan package <a href="https://pub.dev/packages/flutter_svg" target="_blank" class="text-indigo-600 hover:underline">flutter_svg</a>.</p>
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider mb-3">Contoh di Flutter (Dart)</h4>
+                        <code class="text-slate-600 font-mono text-[11px] block bg-slate-50 p-3 rounded-lg border border-slate-100">import 'package:flutter_svg/flutter_svg.dart';<br>import 'nusa_icons.dart'; // file dari dist/nusa_icons.dart<br><br>class MyWidget extends StatelessWidget {<br>&nbsp;&nbsp;@override<br>&nbsp;&nbsp;Widget build(BuildContext context) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return SvgPicture.string(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NusaIcons.home, // Menggunakan camelCase: home, arrowLeft, dsb.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 24,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 24,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colorFilter: ColorFilter.mode(Colors.blue, BlendMode.srcIn),<br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>&nbsp;&nbsp;}<br>}</code>
+                    </div>
+                </section>
             </div>
             <div class="p-6 border-t border-slate-100 bg-slate-50 text-center">
                 <p class="text-xs font-medium text-slate-400">NusaIcons &copy; 2026 - Premium Open Source</p>

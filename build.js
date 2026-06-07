@@ -130,13 +130,38 @@ module.exports = { icons, iconNames, iconCategories, getSvg, getIcon, getByCateg
 `;
 
 // ─────────────────────────────────────────────────────────
-// 5. Tulis File
+// 5. Dart Output untuk Flutter (dist/nusa_icons.dart)
+// ─────────────────────────────────────────────────────────
+function toCamelCase(str) {
+  return str.replace(/-([a-z])/g, function (g) { return g[1].toUpperCase(); });
+}
+
+let dartContent = `// NusaIcons v1.0.0 - Flutter/Dart Build
+// Auto-generated. Disarankan digunakan dengan package 'flutter_svg' (SvgPicture.string)
+// https://amrunamv.github.io/nusaicon/
+
+class NusaIcons {
+  NusaIcons._();\n\n`;
+
+icons.forEach(icon => {
+  const camelName = toCamelCase(icon.name);
+  // Default SVG for Flutter string with fixed default size/color (can be overridden by flutter_svg)
+  const svgString = buildSvgString(icon, { size: 24, color: 'currentColor', strokeWidth: 2 });
+  dartContent += `  static const String ${camelName} = '''${svgString}''';\n`;
+});
+
+dartContent += `}\n`;
+
+// ─────────────────────────────────────────────────────────
+// 6. Tulis File
 // ─────────────────────────────────────────────────────────
 fs.writeFileSync(path.join('dist', 'index.esm.js'), esmContent, 'utf-8');
 fs.writeFileSync(path.join('dist', 'index.cjs.js'), cjsContent, 'utf-8');
+fs.writeFileSync(path.join('dist', 'nusa_icons.dart'), dartContent, 'utf-8');
 
 console.log('✅ NusaIcons build selesai!');
 console.log(`   📦 dist/index.esm.js  (ESM - import)`);
 console.log(`   📦 dist/index.cjs.js  (CJS - require)`);
+console.log(`   💙 dist/nusa_icons.dart (Flutter / Dart)`);
 console.log(`   🎨 nusaicons.css      (CSS - link/import)`);
 console.log(`   Total: ${icons.length} ikon tersedia`);
