@@ -517,11 +517,22 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const templates = document.querySelectorAll('div[id^="template-"]');
+            templates.forEach(t => {
+                const htmlContent = t.innerHTML.trim();
+                const escaped = htmlContent.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                
+                t.className = "bg-[#0D1117] text-emerald-400 text-xs sm:text-sm p-4 sm:p-6 rounded-2xl overflow-x-auto border border-slate-800 shadow-inner w-full font-mono mt-6 text-left leading-relaxed relative group";
+                t.innerHTML = `<code>${escaped}</code>`;
+            });
+        });
+
         const toast = document.getElementById('toast');
         let toastTimeout;
 
         function copyTemplate(id, btn) {
-            const content = document.getElementById(id).innerText.trim();
+            const content = document.getElementById(id).textContent.trim();
             
             // Simpan state tombol asli
             const originalHtml = btn.innerHTML;
