@@ -307,6 +307,82 @@
                         </div>
                     </div>
                 </section>
+
+                <!-- Section 4 -->
+                <section>
+                    <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-900 text-white text-xs">4</span> 
+                        Instalasi Via NPM & Penggunaan Node.js
+                    </h3>
+                    <p class="mb-4 text-slate-500">Selain CDN, Anda dapat menginstal NusaIcons melalui <strong>NPM</strong> atau <strong>Yarn</strong> untuk proyek modern.</p>
+                    <div class="bg-[#0D1117] rounded-xl p-5 relative group border border-slate-800 shadow-xl mb-4">
+                        <code class="text-emerald-400 font-mono text-xs block break-all leading-loose">npm install nusaicons</code>
+                    </div>
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider mb-3">CommonJS / ES Modules</h4>
+                        <code class="text-slate-600 font-mono text-[11px] block bg-slate-50 p-3 rounded-lg border border-slate-100">import { getSvg, getIcon } from 'nusaicons';<br><br>// Mendapatkan SVG String<br>const svg = getSvg('home', { size: 24, color: '#4f46e5' });<br><br>// Mendapatkan Data Ikon<br>const data = getIcon('home');</code>
+                    </div>
+                </section>
+
+                <!-- Section 5 -->
+                <section>
+                    <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-900 text-white text-xs">5</span> 
+                        Integrasi Framework Modern
+                    </h3>
+                    <p class="mb-4 text-slate-500">NusaIcons dirancang kompatibel dengan framework JavaScript seperti React, Next.js, dan Vue 3. Anda cukup mengimport fungsi <code class="font-mono text-[11px] bg-slate-100 px-1.5 py-0.5 rounded text-indigo-600 border border-slate-200">getSvg()</code>.</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                            <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider mb-3">React / Next.js</h4>
+                            <code class="text-slate-600 font-mono text-[11px] block bg-slate-50 p-3 rounded-lg border border-slate-100">import { getSvg } from 'nusaicons';<br><br>function MyButton() {<br>&nbsp;&nbsp;return (<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span dangerouslySetInnerHTML={{ __html: getSvg('download') }} /&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unduh<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/button&gt;<br>&nbsp;&nbsp;);<br>}</code>
+                        </div>
+                        <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                            <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider mb-3">Vue 3</h4>
+                            <code class="text-slate-600 font-mono text-[11px] block bg-slate-50 p-3 rounded-lg border border-slate-100">&lt;template&gt;<br>&nbsp;&nbsp;&lt;button&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;span v-html="iconHtml" /&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;Unduh<br>&nbsp;&nbsp;&lt;/button&gt;<br>&lt;/template&gt;<br><br>&lt;script setup&gt;<br>import { getSvg } from 'nusaicons';<br>const iconHtml = getSvg('download');<br>&lt;/script&gt;</code>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Section 6 -->
+                <section>
+                    <h3 class="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+                        <span class="flex items-center justify-center w-6 h-6 rounded-full bg-slate-900 text-white text-xs">6</span> 
+                        Referensi API Lengkap
+                    </h3>
+                    <p class="mb-4 text-slate-500">Berikut adalah referensi fungsi JavaScript (NPM) yang tersedia dari pustaka <code class="font-mono text-[11px] bg-slate-100 px-1.5 py-0.5 rounded text-indigo-600 border border-slate-200">nusaicons</code>.</p>
+                    <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-x-auto">
+                        <table class="w-full text-left border-collapse text-[11px]">
+                            <thead>
+                                <tr class="bg-slate-50 border-b border-slate-100 text-slate-800 uppercase tracking-wider">
+                                    <th class="p-3 font-bold">Fungsi / Properti</th>
+                                    <th class="p-3 font-bold">Deskripsi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-slate-600">
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 whitespace-nowrap">getSvg(name, options?)</td>
+                                    <td class="p-3">Mengembalikan tag HTML SVG string. <code class="bg-slate-50 px-1 rounded">options</code> berisi <code class="bg-slate-50 px-1 rounded">{size, color, strokeWidth, className}</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 whitespace-nowrap">getIcon(name)</td>
+                                    <td class="p-3">Mengembalikan objek data ikon <code class="bg-slate-50 px-1 rounded">{name, category, path}</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 whitespace-nowrap">getByCategory(cat)</td>
+                                    <td class="p-3">Mengembalikan array ikon berdasarkan string kategori.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 whitespace-nowrap">icons</td>
+                                    <td class="p-3">Array berisi seluruh data ikon (38+ ikon).</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-mono text-indigo-600 whitespace-nowrap">iconNames</td>
+                                    <td class="p-3">Array berisi seluruh string nama ikon.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
             </div>
             <div class="p-6 border-t border-slate-100 bg-slate-50 text-center">
                 <p class="text-xs font-medium text-slate-400">NusaIcons &copy; 2026 - Premium Open Source</p>
