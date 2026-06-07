@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumentasi Instalasi — NusaIcons</title>
+    <meta name="theme-color" content="#4f46e5">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%234f46e5'/><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5' stroke='white' stroke-width='2' fill='none'/></svg>">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#4f46e5' },
+                    fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+            mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-[#FAFAFA] text-slate-800 font-sans min-h-screen relative selection:bg-indigo-500 selection:text-white pb-20">
+
+    <!-- Grid Overlay -->
+    <div class="fixed inset-0 z-[-2] bg-grid-pattern pointer-events-none w-full h-full"></div>
+
+    <!-- Header Glassmorphism -->
+    <header class="sticky top-0 z-50 w-full border-b border-slate-200/60 glass-card">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="flex items-center gap-2 text-slate-500 hover:text-indigo-600 transition-colors font-medium text-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                    Kembali
+                </a>
+            </div>
+            <div class="font-bold text-lg tracking-tight text-slate-900 flex items-center gap-2">
+                <div class="w-6 h-6 rounded-md bg-gradient-to-br from-indigo-600 to-violet-600 flex items-center justify-center shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                NusaIcons Docs
+            </div>
+            <div class="w-20"></div> <!-- Balancer -->
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+        <div class="mb-12 text-center">
+            <h1 class="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Dokumentasi Instalasi Lengkap</h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">Panduan komprehensif mulai dari penggunaan CDN, instalasi NPM, dukungan framework modern, hingga integrasi Flutter.</p>
+        </div>
+
+        <div class="space-y-12">
+            <!-- Section 1 -->
+            <section class="bg-white/60 border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm backdrop-blur-xl">
+                <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-900 text-white text-sm">1</span> 
+                    Instalasi (Via CDN)
+                </h3>
+                <p class="mb-4 text-slate-600 text-base">Cukup salin tag <code class="font-mono text-sm bg-slate-100 px-1.5 py-0.5 rounded text-slate-800 border border-slate-200">&lt;link&gt;</code> berikut dan letakkan di dalam blok <code class="font-mono text-sm bg-slate-100 px-1.5 py-0.5 rounded text-slate-800 border border-slate-200">&lt;head&gt;</code> pada file HTML Anda.</p>
+                <div class="bg-[#0D1117] rounded-xl p-5 relative group border border-slate-800 shadow-xl">
+                    <code class="text-emerald-400 font-mono text-sm block break-all leading-loose">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amrunamv/nusaicon@main/nusaicons.css"&gt;</code>
+                </div>
+            </section>
+
+            <!-- Section 2 -->
+            <section class="bg-white/60 border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm backdrop-blur-xl">
+                <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-900 text-white text-sm">2</span> 
+                    Cara Penggunaan
+                </h3>
+                <p class="mb-4 text-slate-600 text-base">Gunakan tag <code class="font-mono text-sm bg-slate-100 px-1.5 py-0.5 rounded text-slate-800 border border-slate-200">&lt;i&gt;</code> dengan class <code class="font-mono text-sm bg-slate-100 px-1.5 py-0.5 rounded text-indigo-600 border border-slate-200">icon-{nama-ikon}</code>. Ikon otomatis menyesuaikan ukuran font induknya (<code class="font-mono text-sm bg-slate-100 px-1.5 py-0.5 rounded text-slate-800 border border-slate-200">1em</code>).</p>
+                <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                    <p class="text-slate-800 font-semibold mb-3 text-xs uppercase tracking-wider">Contoh Pemasangan:</p>
+                    <code class="text-indigo-600 font-mono text-sm block bg-slate-50 p-4 border border-slate-100 rounded-lg">&lt;button&gt; &lt;i class="icon-download"&gt;&lt;/i&gt; Unduh Data &lt;/button&gt;</code>
+                </div>
+            </section>
+
+            <!-- Section 3 -->
+            <section class="bg-white/60 border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm backdrop-blur-xl">
+                <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-900 text-white text-sm">3</span> 
+                    Mewarnai & Kustomisasi
+                </h3>
+                <p class="mb-4 text-slate-600 text-base">NusaIcons menggunakan trik **CSS Masking**, yang artinya ikon akan menyerap warna <code class="font-mono text-sm bg-slate-100 px-1.5 py-0.5 rounded text-slate-800 border border-slate-200">color</code> teks di sekitarnya. Anda bisa langsung mewarnainya dengan utilitas teks biasa!</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider mb-3">Tailwind CSS</h4>
+                        <code class="text-slate-600 font-mono text-sm block bg-slate-50 p-4 rounded-lg border border-slate-100">&lt;i class="icon-heart <span class="text-rose-500 font-bold">text-rose-500 text-3xl</span>"&gt;&lt;/i&gt;</code>
+                    </div>
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider mb-3">CSS Biasa</h4>
+                        <code class="text-slate-600 font-mono text-sm block bg-slate-50 p-4 rounded-lg border border-slate-100">.icon-heart {<br>&nbsp;&nbsp;color: #f43f5e;<br>&nbsp;&nbsp;font-size: 30px;<br>}</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4 -->
+            <section class="bg-white/60 border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm backdrop-blur-xl">
+                <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-900 text-white text-sm">4</span> 
+                    Instalasi Via NPM & Penggunaan Node.js
+                </h3>
+                <p class="mb-4 text-slate-600 text-base">Selain CDN, Anda dapat menginstal NusaIcons melalui <strong>NPM</strong> atau <strong>Yarn</strong> untuk proyek modern.</p>
+                <div class="bg-[#0D1117] rounded-xl p-5 relative group border border-slate-800 shadow-xl mb-4">
+                    <code class="text-emerald-400 font-mono text-sm block break-all leading-loose">npm install nusaicons</code>
+                </div>
+                <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                    <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider mb-3">CommonJS / ES Modules</h4>
+                    <code class="text-slate-600 font-mono text-sm block bg-slate-50 p-4 rounded-lg border border-slate-100">import { getSvg, getIcon } from 'nusaicons';<br><br>// Mendapatkan SVG String<br>const svg = getSvg('home', { size: 24, color: '#4f46e5' });<br><br>// Mendapatkan Data Ikon<br>const data = getIcon('home');</code>
+                </div>
+            </section>
+
+            <!-- Section 5 -->
+            <section class="bg-white/60 border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm backdrop-blur-xl">
+                <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-900 text-white text-sm">5</span> 
+                    Integrasi Framework Modern
+                </h3>
+                <p class="mb-4 text-slate-600 text-base">NusaIcons dirancang kompatibel dengan framework JavaScript seperti React, Next.js, dan Vue 3. Anda cukup mengimport fungsi <code class="font-mono text-sm bg-slate-100 px-1.5 py-0.5 rounded text-indigo-600 border border-slate-200">getSvg()</code>.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider mb-3">React / Next.js</h4>
+                        <code class="text-slate-600 font-mono text-sm block bg-slate-50 p-4 rounded-lg border border-slate-100">import { getSvg } from 'nusaicons';<br><br>function MyButton() {<br>&nbsp;&nbsp;return (<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span dangerouslySetInnerHTML={{ __html: getSvg('download') }} /&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Unduh<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/button&gt;<br>&nbsp;&nbsp;);<br>}</code>
+                    </div>
+                    <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                        <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider mb-3">Vue 3</h4>
+                        <code class="text-slate-600 font-mono text-sm block bg-slate-50 p-4 rounded-lg border border-slate-100">&lt;template&gt;<br>&nbsp;&nbsp;&lt;button&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&lt;span v-html="iconHtml" /&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;Unduh<br>&nbsp;&nbsp;&lt;/button&gt;<br>&lt;/template&gt;<br><br>&lt;script setup&gt;<br>import { getSvg } from 'nusaicons';<br>const iconHtml = getSvg('download');<br>&lt;/script&gt;</code>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 6 -->
+            <section class="bg-white/60 border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm backdrop-blur-xl">
+                <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-900 text-white text-sm">6</span> 
+                    Referensi API Lengkap
+                </h3>
+                <p class="mb-4 text-slate-600 text-base">Berikut adalah referensi fungsi JavaScript (NPM) yang tersedia dari pustaka <code class="font-mono text-sm bg-slate-100 px-1.5 py-0.5 rounded text-indigo-600 border border-slate-200">nusaicons</code>.</p>
+                <div class="bg-white border border-slate-200 rounded-xl shadow-sm overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-slate-50 border-b border-slate-100 text-slate-800 uppercase tracking-wider text-xs">
+                                <th class="p-4 font-bold">Fungsi / Properti</th>
+                                <th class="p-4 font-bold">Deskripsi</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-600">
+                            <tr>
+                                <td class="p-4 font-mono text-indigo-600 whitespace-nowrap">getSvg(name, options?)</td>
+                                <td class="p-4">Mengembalikan tag HTML SVG string. <code class="bg-slate-50 px-1 rounded">options</code> berisi <code class="bg-slate-50 px-1 rounded border border-slate-200">{size, color, strokeWidth, className}</code>.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-mono text-indigo-600 whitespace-nowrap">getIcon(name)</td>
+                                <td class="p-4">Mengembalikan objek data ikon <code class="bg-slate-50 px-1 rounded border border-slate-200">{name, category, path}</code>.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-mono text-indigo-600 whitespace-nowrap">getByCategory(cat)</td>
+                                <td class="p-4">Mengembalikan array ikon berdasarkan string kategori.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-mono text-indigo-600 whitespace-nowrap">icons</td>
+                                <td class="p-4">Array berisi seluruh data ikon (38+ ikon).</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 font-mono text-indigo-600 whitespace-nowrap">iconNames</td>
+                                <td class="p-4">Array berisi seluruh string nama ikon.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section 7 -->
+            <section class="bg-white/60 border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm backdrop-blur-xl">
+                <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-3">
+                    <span class="flex items-center justify-center w-8 h-8 rounded-full bg-slate-900 text-white text-sm">7</span> 
+                    Integrasi Mobile (Flutter)
+                </h3>
+                <p class="mb-4 text-slate-600 text-base">Selain Web, NusaIcons juga menyediakan <em>auto-generated Dart File</em> untuk developer Flutter. Unduh file <code class="font-mono text-sm bg-slate-100 px-1.5 py-0.5 rounded text-indigo-600 border border-slate-200">nusa_icons.dart</code> dari repositori kami dan gunakan package <a href="https://pub.dev/packages/flutter_svg" target="_blank" class="text-indigo-600 font-semibold hover:underline">flutter_svg</a>.</p>
+                <div class="bg-white border border-slate-200 rounded-xl p-5 shadow-sm">
+                    <h4 class="font-bold text-slate-800 text-xs uppercase tracking-wider mb-3">Contoh di Flutter (Dart)</h4>
+                    <code class="text-slate-600 font-mono text-sm block bg-slate-50 p-4 rounded-lg border border-slate-100">import 'package:flutter_svg/flutter_svg.dart';<br>import 'nusa_icons.dart'; // file dari dist/nusa_icons.dart<br><br>class MyWidget extends StatelessWidget {<br>&nbsp;&nbsp;@override<br>&nbsp;&nbsp;Widget build(BuildContext context) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return SvgPicture.string(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NusaIcons.home, // Menggunakan camelCase: home, arrowLeft, dsb.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 24,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 24,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colorFilter: ColorFilter.mode(Colors.blue, BlendMode.srcIn),<br>&nbsp;&nbsp;&nbsp;&nbsp;);<br>&nbsp;&nbsp;}<br>}</code>
+                </div>
+            </section>
+        </div>
+
+        <div class="mt-16 text-center border-t border-slate-200/60 pt-8">
+            <p class="text-sm font-medium text-slate-400">NusaIcons &copy; 2026 - Premium Open Source Library</p>
+        </div>
+    </main>
+
+</body>
+</html>
