@@ -71,6 +71,15 @@
             padding: 8px 16px;
             letter-spacing: 2px;
         }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body class="bg-[#FAFAFA] text-slate-800 font-sans min-h-screen relative pb-20">
@@ -122,13 +131,25 @@
 
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="text-center mb-16">
+        <div class="text-center mb-10">
             <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Koleksi Template UI</h1>
             <p class="text-lg text-slate-500 max-w-2xl mx-auto">Kumpulan komponen UI Web & Mobile (Tailwind CSS + NusaIcons) yang bisa Anda <em>Copy & Paste</em> langsung ke project Anda.</p>
         </div>
 
+        <!-- Tabs -->
+        <div class="flex justify-center mb-12">
+            <div class="inline-flex bg-slate-200/50 backdrop-blur-sm p-1.5 rounded-2xl border border-slate-200/60 shadow-sm">
+                <button onclick="switchTab('web')" id="btn-web" class="flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm transition-all shadow-sm bg-white text-indigo-600 border border-slate-100">
+                    <i class="icon-monitor text-lg"></i> Website
+                </button>
+                <button onclick="switchTab('mobile')" id="btn-mobile" class="flex items-center gap-2 px-6 py-2.5 rounded-xl font-bold text-sm transition-all text-slate-500 hover:text-slate-700 border border-transparent">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg> Mobile Apps
+                </button>
+            </div>
+        </div>
+
         <!-- Section: Web Templates -->
-        <div class="mb-20">
+        <div id="section-web" class="mb-20 block fade-in">
             <div class="flex items-center gap-4 mb-10">
                 <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center">
                     <i class="icon-monitor text-xl"></i>
@@ -259,7 +280,7 @@
         </div>
 
         <!-- Section: Mobile Templates -->
-        <div>
+        <div id="section-mobile" class="hidden fade-in mb-20">
             <div class="flex items-center gap-4 mb-10">
                 <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
@@ -517,6 +538,40 @@
     </div>
 
     <script>
+        function switchTab(tab) {
+            const secWeb = document.getElementById('section-web');
+            const secMobile = document.getElementById('section-mobile');
+            const btnWeb = document.getElementById('btn-web');
+            const btnMobile = document.getElementById('btn-mobile');
+
+            const activeClass = ['bg-white', 'text-indigo-600', 'border-slate-100', 'shadow-sm'];
+            const inactiveClass = ['text-slate-500', 'hover:text-slate-700', 'border-transparent'];
+
+            if (tab === 'web') {
+                secWeb.classList.remove('hidden');
+                secWeb.classList.add('block');
+                secMobile.classList.remove('block');
+                secMobile.classList.add('hidden');
+                
+                btnWeb.classList.add(...activeClass);
+                btnWeb.classList.remove(...inactiveClass);
+                
+                btnMobile.classList.add(...inactiveClass);
+                btnMobile.classList.remove(...activeClass);
+            } else {
+                secWeb.classList.remove('block');
+                secWeb.classList.add('hidden');
+                secMobile.classList.remove('hidden');
+                secMobile.classList.add('block');
+                
+                btnMobile.classList.add(...activeClass);
+                btnMobile.classList.remove(...inactiveClass);
+                
+                btnWeb.classList.add(...inactiveClass);
+                btnWeb.classList.remove(...activeClass);
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const templates = document.querySelectorAll('div[id^="template-"]');
             templates.forEach(t => {
