@@ -102,8 +102,15 @@
                     Instalasi (Via CDN)
                 </h3>
                 <p class="mb-4 text-slate-600 text-base">Cukup salin tag <code class="font-mono text-sm bg-slate-100 px-1.5 py-0.5 rounded text-slate-800 border border-slate-200">&lt;link&gt;</code> berikut dan letakkan di dalam blok <code class="font-mono text-sm bg-slate-100 px-1.5 py-0.5 rounded text-slate-800 border border-slate-200">&lt;head&gt;</code> pada file HTML Anda.</p>
-                <div class="bg-[#0D1117] rounded-xl p-5 relative group border border-slate-800 shadow-xl">
+                <div class="bg-[#0D1117] rounded-xl p-5 relative group border border-slate-800 shadow-xl mb-6">
+                    <h4 class="text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">CDN CSS (Rekomendasi Web)</h4>
                     <code class="text-emerald-400 font-mono text-sm block break-all leading-loose">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amrunamv/nusaicon@main/nusaicons.css"&gt;</code>
+                </div>
+                
+                <p class="mb-4 text-slate-600 text-base">Atau, jika Anda membutuhkan NusaIcons dalam format JavaScript (ES Module) untuk memanggil raw SVG:</p>
+                <div class="bg-[#0D1117] rounded-xl p-5 relative group border border-slate-800 shadow-xl">
+                    <h4 class="text-xs font-semibold text-slate-400 mb-2 uppercase tracking-wide">CDN JavaScript (ESM)</h4>
+                    <code class="text-emerald-400 font-mono text-sm block break-all leading-loose">&lt;script type="module"&gt;<br>&nbsp;&nbsp;import { getSvg } from "https://cdn.jsdelivr.net/npm/nusaicons@1.0.2/dist/index.esm.js";<br>&lt;/script&gt;</code>
                 </div>
             </section>
 
