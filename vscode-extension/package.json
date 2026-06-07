@@ -2,8 +2,9 @@
   "name": "nusaicons-vscode",
   "displayName": "NusaIcons IntelliSense",
   "description": "Official Autocomplete and Hover Previews for the NusaIcons SVG Library.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "amrunamv",
+  "icon": "logo.png",
   "engines": {
     "vscode": "^1.80.0"
   },
