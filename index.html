@@ -1,9 +1,73 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" prefix="og: https://ogp.me/ns#">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NusaIcons - Pustaka Ikon Premium</title>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!--  PRIMARY SEO                                    -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <title>NusaIcons — Pustaka Ikon Open-Source untuk Developer Indonesia</title>
+    <meta name="description" content="NusaIcons adalah pustaka ikon SVG open-source gratis untuk developer Indonesia. 38+ ikon premium berkualitas tinggi, ringan, mendukung currentColor & Tailwind CSS. Pasang dengan satu baris CDN.">
+    <meta name="keywords" content="NusaIcons, pustaka ikon, icon library, ikon SVG, free icons Indonesia, open source icons, icon CSS, Tailwind CSS icons, ikon gratis, ikon developer, icon pack Indonesia, SVG icon library, CSS icon library, currentColor icons, ikon web">
+    <meta name="author" content="AMV - Amrunamv">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="googlebot" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="Indonesian">
+    <meta name="rating" content="general">
+    <link rel="canonical" href="https://amrunamv.github.io/nusaicon/">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!--  GEO TAGS (Lokasi & Target Wilayah)             -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <meta name="geo.region" content="ID">
+    <meta name="geo.country" content="Indonesia">
+    <meta name="geo.placename" content="Indonesia">
+    <meta name="geo.position" content="-2.548926;118.014863">
+    <meta name="ICBM" content="-2.548926, 118.014863">
+    <meta name="DC.language" content="id">
+    <meta name="DC.coverage" content="Indonesia">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!--  OPEN GRAPH (Facebook, LinkedIn, WhatsApp)      -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://amrunamv.github.io/nusaicon/">
+    <meta property="og:title" content="NusaIcons — Pustaka Ikon Open-Source untuk Developer Indonesia">
+    <meta property="og:description" content="38+ ikon SVG premium gratis untuk developer Indonesia. Ringan, mendukung currentColor & Tailwind CSS. Pasang dengan 1 baris kode.">
+    <meta property="og:image" content="https://amrunamv.github.io/nusaicon/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="NusaIcons - Pustaka Ikon Premium Indonesia">
+    <meta property="og:site_name" content="NusaIcons">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!--  TWITTER CARD                                   -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@amrunamv">
+    <meta name="twitter:creator" content="@amrunamv">
+    <meta name="twitter:url" content="https://amrunamv.github.io/nusaicon/">
+    <meta name="twitter:title" content="NusaIcons — Pustaka Ikon Open-Source untuk Developer Indonesia">
+    <meta name="twitter:description" content="38+ ikon SVG premium gratis untuk developer Indonesia. Ringan, mendukung currentColor & Tailwind CSS.">
+    <meta name="twitter:image" content="https://amrunamv.github.io/nusaicon/og-image.png">
+    <meta name="twitter:image:alt" content="NusaIcons - Pustaka Ikon Premium Indonesia">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!--  HREFLANG & ALTERNATE                           -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <link rel="alternate" hreflang="id" href="https://amrunamv.github.io/nusaicon/">
+    <link rel="alternate" hreflang="x-default" href="https://amrunamv.github.io/nusaicon/">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!--  FAVICON & THEME                                -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="msapplication-TileColor" content="#4f46e5">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%234f46e5'/><path d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5' stroke='white' stroke-width='2' fill='none'/></svg>">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -476,6 +540,97 @@
         // Initialize
         renderCategories();
         renderIcons();
+    </script>
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!--  JSON-LD STRUCTURED DATA (Schema.org)           -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://amrunamv.github.io/nusaicon/#website",
+          "url": "https://amrunamv.github.io/nusaicon/",
+          "name": "NusaIcons",
+          "description": "Pustaka ikon SVG open-source premium untuk developer Indonesia",
+          "inLanguage": "id-ID",
+          "publisher": {
+            "@id": "https://amrunamv.github.io/nusaicon/#organization"
+          },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://amrunamv.github.io/nusaicon/?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://amrunamv.github.io/nusaicon/#organization",
+          "name": "NusaIcons",
+          "url": "https://amrunamv.github.io/nusaicon/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://amrunamv.github.io/nusaicon/og-image.png",
+            "width": 1200,
+            "height": 630
+          },
+          "sameAs": [
+            "https://github.com/amrunamv/nusaicon"
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "NusaIcons",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "Web Browser",
+          "url": "https://amrunamv.github.io/nusaicon/",
+          "description": "Pustaka ikon SVG open-source gratis dengan 38+ ikon premium untuk developer Indonesia. Mendukung currentColor dan Tailwind CSS.",
+          "version": "1.0.0",
+          "inLanguage": "id-ID",
+          "license": "https://opensource.org/licenses/MIT",
+          "author": {
+            "@type": "Person",
+            "name": "Amrunamv",
+            "url": "https://github.com/amrunamv"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "IDR"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "1"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://amrunamv.github.io/nusaicon/#webpage",
+          "url": "https://amrunamv.github.io/nusaicon/",
+          "name": "NusaIcons — Pustaka Ikon Open-Source untuk Developer Indonesia",
+          "description": "38+ ikon SVG premium gratis untuk developer Indonesia. Pasang dengan 1 baris CDN, mendukung currentColor & Tailwind CSS.",
+          "inLanguage": "id-ID",
+          "isPartOf": { "@id": "https://amrunamv.github.io/nusaicon/#website" },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "NusaIcons",
+                "item": "https://amrunamv.github.io/nusaicon/"
+              }
+            ]
+          }
+        }
+      ]
+    }
     </script>
 </body>
 </html>

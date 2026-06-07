@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://amrunamv.github.io/nusaicon/sitemap.xml
+
+# Crawl delay (detik)
+Crawl-delay: 10
+
+# Izinkan semua crawler utama
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
