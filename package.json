@@ -23,7 +23,7 @@
   "homepage": "https://amrunamv.github.io/nusaicon/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/amrunamv/nusaicon.git"
+    "url": "git+https://github.com/amrunamv/nusaicon.git"
   },
   "bugs": {
     "url": "https://github.com/amrunamv/nusaicon/issues"
