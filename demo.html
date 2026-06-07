@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Penggunaan NusaIcons</title>
+
+    <!-- ✅ LANGKAH 1: Pasang NusaIcons CSS (dari GitHub CDN) -->
+    <link rel="stylesheet" href="./nusaicons.css">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        .container { max-width: 860px; margin: 0 auto; padding: 40px 20px; }
+        
+        h1 { font-size: 2rem; font-weight: 800; margin-bottom: 8px; }
+        h2 { font-size: 1.1rem; font-weight: 700; color: #475569; margin: 40px 0 16px; display: flex; align-items: center; gap: 8px; }
+        .badge { font-size: 11px; background: #e0e7ff; color: #4f46e5; padding: 2px 8px; border-radius: 99px; font-weight: 700; }
+
+        /* Demo 1 - Dalam Tombol */
+        .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; border: none; transition: all 0.2s; }
+        .btn-primary { background: #4f46e5; color: white; }
+        .btn-primary:hover { background: #4338ca; transform: translateY(-1px); }
+        .btn-outline { background: white; color: #1e293b; border: 1px solid #e2e8f0; }
+        .btn-outline:hover { background: #f8fafc; }
+        .btn-danger { background: #ef4444; color: white; }
+        .btn-danger:hover { background: #dc2626; }
+        .btn-group { display: flex; flex-wrap: wrap; gap: 10px; }
+
+        /* Demo 2 - Ukuran Ikon */
+        .size-demo { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .size-item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+        .size-label { font-size: 11px; color: #94a3b8; font-weight: 600; }
+
+        /* Demo 3 - Warna Ikon */
+        .color-demo { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+
+        /* Demo 4 - Alert Cards */
+        .alert { display: flex; align-items: flex-start; gap: 12px; padding: 14px 18px; border-radius: 12px; font-size: 14px; margin-bottom: 10px; }
+        .alert-info { background: #eff6ff; border: 1px solid #bfdbfe; color: #1d4ed8; }
+        .alert-success { background: #f0fdf4; border: 1px solid #bbf7d0; color: #15803d; }
+        .alert-danger { background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; }
+        .alert-icon { margin-top: 1px; flex-shrink: 0; }
+
+        /* Demo 5 - Nav Bar Sederhana */
+        .navbar { display: flex; align-items: center; justify-content: space-between; background: white; border: 1px solid #e2e8f0; border-radius: 14px; padding: 12px 20px; }
+        .nav-brand { display: flex; align-items: center; gap: 8px; font-weight: 700; color: #4f46e5; }
+        .nav-links { display: flex; gap: 4px; }
+        .nav-link { display: flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: 8px; font-size: 13px; font-weight: 500; color: #64748b; text-decoration: none; cursor: pointer; transition: all 0.2s; }
+        .nav-link:hover { background: #f1f5f9; color: #1e293b; }
+
+        /* Demo 6 - Icon dalam Input Field */
+        .input-group { position: relative; }
+        .input-group input { width: 100%; padding: 12px 16px 12px 42px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 14px; outline: none; transition: border-color 0.2s; }
+        .input-group input:focus { border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79,70,229,0.1); }
+        .input-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 16px; }
+        .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+        /* Code block */
+        .code { background: #0d1117; color: #7ee787; font-family: 'Courier New', monospace; font-size: 13px; padding: 16px 20px; border-radius: 12px; margin: 12px 0; overflow-x: auto; }
+        .code-comment { color: #8b949e; }
+        hr { border: none; border-top: 1px solid #e2e8f0; margin: 48px 0; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <h1>🎯 Demo NusaIcons</h1>
+    <p style="color:#64748b;margin-bottom:8px;">Cara menggunakan NusaIcons di project nyata. Cukup satu baris CSS, semua ikon siap pakai.</p>
+    <div class="code">
+        <span class="code-comment">&lt;!-- Pasang di &lt;head&gt; --&gt;</span><br>
+        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amrunamv/nusaicon@main/nusaicons.css"&gt;
+    </div>
+
+    <hr>
+
+    <!-- Demo 1: Dalam Tombol -->
+    <h2><i class="icon-check" style="color:#4f46e5;font-size:18px;"></i> 1. Ikon Dalam Tombol <span class="badge">PALING UMUM</span></h2>
+    <div class="btn-group">
+        <button class="btn btn-primary"><i class="icon-download"></i> Unduh</button>
+        <button class="btn btn-primary"><i class="icon-upload"></i> Unggah</button>
+        <button class="btn btn-outline"><i class="icon-edit"></i> Edit</button>
+        <button class="btn btn-outline"><i class="icon-share"></i> Bagikan</button>
+        <button class="btn btn-danger"><i class="icon-trash"></i> Hapus</button>
+        <button class="btn btn-outline"><i class="icon-settings"></i> Pengaturan</button>
+    </div>
+    <div class="code">&lt;button&gt; &lt;i class="icon-download"&gt;&lt;/i&gt; Unduh &lt;/button&gt;</div>
+
+    <!-- Demo 2: Ukuran -->
+    <h2><i class="icon-sun" style="color:#f59e0b;font-size:18px;"></i> 2. Menyesuaikan Ukuran Ikon</h2>
+    <div class="size-demo">
+        <div class="size-item">
+            <i class="icon-star" style="font-size:14px;color:#4f46e5;"></i>
+            <span class="size-label">14px</span>
+        </div>
+        <div class="size-item">
+            <i class="icon-star" style="font-size:20px;color:#4f46e5;"></i>
+            <span class="size-label">20px</span>
+        </div>
+        <div class="size-item">
+            <i class="icon-star" style="font-size:28px;color:#4f46e5;"></i>
+            <span class="size-label">28px</span>
+        </div>
+        <div class="size-item">
+            <i class="icon-star" style="font-size:40px;color:#4f46e5;"></i>
+            <span class="size-label">40px</span>
+        </div>
+        <div class="size-item">
+            <i class="icon-star" style="font-size:60px;color:#4f46e5;"></i>
+            <span class="size-label">60px</span>
+        </div>
+    </div>
+    <div class="code">&lt;i class="icon-star" style="font-size: 40px;"&gt;&lt;/i&gt;</div>
+
+    <!-- Demo 3: Warna -->
+    <h2><i class="icon-heart" style="color:#ef4444;font-size:18px;"></i> 3. Mewarnai Ikon (via currentColor)</h2>
+    <div class="color-demo">
+        <i class="icon-heart" style="font-size:36px; color:#ef4444;"></i>
+        <i class="icon-bell" style="font-size:36px; color:#f59e0b;"></i>
+        <i class="icon-shield" style="font-size:36px; color:#10b981;"></i>
+        <i class="icon-user" style="font-size:36px; color:#4f46e5;"></i>
+        <i class="icon-star" style="font-size:36px; color:#ec4899;"></i>
+        <i class="icon-lock" style="font-size:36px; color:#06b6d4;"></i>
+        <i class="icon-camera" style="font-size:36px; color:#8b5cf6;"></i>
+    </div>
+    <div class="code">&lt;i class="icon-heart" style="color: #ef4444; font-size: 36px;"&gt;&lt;/i&gt;</div>
+
+    <!-- Demo 4: Alert -->
+    <h2><i class="icon-alert-circle" style="color:#eab308;font-size:18px;"></i> 4. Alert & Notifikasi</h2>
+    <div class="alert alert-info">
+        <i class="icon-info alert-icon" style="font-size:18px;"></i>
+        <div><strong>Informasi:</strong> Data Anda berhasil disinkronisasi dengan server.</div>
+    </div>
+    <div class="alert alert-success">
+        <i class="icon-check alert-icon" style="font-size:18px;"></i>
+        <div><strong>Berhasil:</strong> Akun Anda telah berhasil dibuat dan aktif.</div>
+    </div>
+    <div class="alert alert-danger">
+        <i class="icon-alert-circle alert-icon" style="font-size:18px;"></i>
+        <div><strong>Peringatan:</strong> Sesi Anda akan berakhir dalam 5 menit.</div>
+    </div>
+
+    <!-- Demo 5: Navbar -->
+    <h2><i class="icon-menu" style="color:#4f46e5;font-size:18px;"></i> 5. Navigasi Bar</h2>
+    <nav class="navbar">
+        <div class="nav-brand"><i class="icon-shield" style="font-size:20px;"></i> MyApp</div>
+        <div class="nav-links">
+            <a class="nav-link"><i class="icon-home" style="font-size:15px;"></i> Beranda</a>
+            <a class="nav-link"><i class="icon-users" style="font-size:15px;"></i> Pengguna</a>
+            <a class="nav-link"><i class="icon-folder" style="font-size:15px;"></i> File</a>
+            <a class="nav-link"><i class="icon-settings" style="font-size:15px;"></i> Setelan</a>
+        </div>
+        <button class="btn btn-primary" style="font-size:13px;padding:8px 14px;"><i class="icon-user"></i> Login</button>
+    </nav>
+
+    <!-- Demo 6: Input Field -->
+    <h2><i class="icon-edit" style="color:#4f46e5;font-size:18px;"></i> 6. Ikon Dalam Input Field</h2>
+    <div class="input-row">
+        <div class="input-group">
+            <i class="icon-user input-icon"></i>
+            <input type="text" placeholder="Nama Lengkap...">
+        </div>
+        <div class="input-group">
+            <i class="icon-mail input-icon"></i>
+            <input type="email" placeholder="Email Anda...">
+        </div>
+        <div class="input-group">
+            <i class="icon-lock input-icon"></i>
+            <input type="password" placeholder="Password...">
+        </div>
+        <div class="input-group">
+            <i class="icon-search input-icon"></i>
+            <input type="text" placeholder="Cari sesuatu...">
+        </div>
+    </div>
+    <div class="code">&lt;i class="icon-user" style="position:absolute; left:14px; color:#94a3b8;"&gt;&lt;/i&gt;<br>&lt;input type="text" style="padding-left:42px;"&gt;</div>
+
+    <hr>
+    <p style="text-align:center;color:#94a3b8;font-size:13px;">
+        <strong>NusaIcons v1.0</strong> — 
+        <a href="https://github.com/amrunamv/nusaicon" style="color:#4f46e5;">GitHub</a> · 
+        Open Source & Gratis
+    </p>
+</div>
+</body>
+</html>
