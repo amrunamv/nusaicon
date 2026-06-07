@@ -48,6 +48,29 @@
             position: relative;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
+
+        /* Desktop Mockup Frame */
+        .desktop-mockup {
+            width: 100%;
+            max-width: 900px;
+            min-height: 400px;
+            background: #f8fafc;
+            border: 8px solid #0f172a;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .desktop-mockup::before {
+            content: "•••";
+            display: block;
+            background: #0f172a;
+            color: #475569;
+            font-size: 24px;
+            line-height: 10px;
+            padding: 8px 16px;
+            letter-spacing: 2px;
+        }
     </style>
 </head>
 <body class="bg-[#FAFAFA] text-slate-800 font-sans min-h-screen relative pb-20">
@@ -100,11 +123,152 @@
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Template UI Mobile Apps</h1>
-            <p class="text-lg text-slate-500 max-w-2xl mx-auto">Kumpulan komponen UI Mobile (Tailwind CSS + NusaIcons) yang bisa Anda <em>Copy & Paste</em> langsung ke project Anda untuk mempercepat development.</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 tracking-tight">Koleksi Template UI</h1>
+            <p class="text-lg text-slate-500 max-w-2xl mx-auto">Kumpulan komponen UI Web & Mobile (Tailwind CSS + NusaIcons) yang bisa Anda <em>Copy & Paste</em> langsung ke project Anda.</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12 justify-items-center">
+        <!-- Section: Web Templates -->
+        <div class="mb-20">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center">
+                    <i class="icon-monitor text-xl"></i>
+                </div>
+                <h2 class="text-2xl font-extrabold text-slate-800">Website Templates</h2>
+                <div class="flex-1 h-px bg-slate-200 ml-4"></div>
+            </div>
+
+            <div class="space-y-16 flex flex-col items-center">
+                <!-- Website Navbar -->
+                <div class="w-full max-w-5xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold text-slate-800">1. Website Header/Navbar</h3>
+                        <button onclick="copyTemplate('template-web-nav', this)" class="bg-slate-900 text-white px-4 py-2 text-sm rounded-lg font-semibold shadow-md hover:bg-indigo-600 transition-all flex items-center gap-2">
+                            <i class="icon-copy"></i> Copy Code
+                        </button>
+                    </div>
+                    <div class="desktop-mockup bg-slate-50">
+                        <!-- Template UI Start -->
+                        <nav class="bg-white border-b border-slate-200 px-6 py-4 flex justify-between items-center shadow-sm">
+                            <div class="flex items-center gap-2 text-indigo-600 font-bold text-lg">
+                                <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center">
+                                    <i class="icon-sun text-lg"></i>
+                                </div>
+                                NusaApp
+                            </div>
+                            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                                <a href="#" class="hover:text-indigo-600 transition-colors">Produk</a>
+                                <a href="#" class="hover:text-indigo-600 transition-colors">Harga</a>
+                                <a href="#" class="hover:text-indigo-600 transition-colors">Tentang Kami</a>
+                                <a href="#" class="hover:text-indigo-600 transition-colors">Kontak</a>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <button class="text-slate-500 hover:text-slate-900 transition-colors">
+                                    <i class="icon-search text-xl"></i>
+                                </button>
+                                <button class="bg-slate-900 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-indigo-600 transition-colors">Masuk</button>
+                            </div>
+                        </nav>
+                        <!-- Template UI End -->
+                    </div>
+                    <div id="template-web-nav" class="hidden">
+<nav class="bg-white border-b border-slate-200 px-6 py-4 flex justify-between items-center shadow-sm">
+    <div class="flex items-center gap-2 text-indigo-600 font-bold text-lg">
+        <div class="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center">
+            <i class="icon-sun text-lg"></i>
+        </div>
+        NusaApp
+    </div>
+    <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a href="#" class="hover:text-indigo-600 transition-colors">Produk</a>
+        <a href="#" class="hover:text-indigo-600 transition-colors">Harga</a>
+        <a href="#" class="hover:text-indigo-600 transition-colors">Tentang Kami</a>
+        <a href="#" class="hover:text-indigo-600 transition-colors">Kontak</a>
+    </div>
+    <div class="flex items-center gap-4">
+        <button class="text-slate-500 hover:text-slate-900 transition-colors">
+            <i class="icon-search text-xl"></i>
+        </button>
+        <button class="bg-slate-900 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-indigo-600 transition-colors">Masuk</button>
+    </div>
+</nav>
+                    </div>
+                </div>
+
+                <!-- Feature Grid -->
+                <div class="w-full max-w-5xl">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold text-slate-800">2. Website Features Grid</h3>
+                        <button onclick="copyTemplate('template-web-features', this)" class="bg-slate-900 text-white px-4 py-2 text-sm rounded-lg font-semibold shadow-md hover:bg-indigo-600 transition-all flex items-center gap-2">
+                            <i class="icon-copy"></i> Copy Code
+                        </button>
+                    </div>
+                    <div class="desktop-mockup bg-slate-50 p-8 md:p-12">
+                        <!-- Template UI Start -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
+                                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+                                    <i class="icon-shield text-2xl"></i>
+                                </div>
+                                <h4 class="font-bold text-slate-800 mb-2">Keamanan Tinggi</h4>
+                                <p class="text-sm text-slate-500 leading-relaxed">Sistem dilindungi dengan enkripsi mutakhir untuk menjaga privasi Anda.</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+                                    <i class="icon-check text-2xl"></i>
+                                </div>
+                                <h4 class="font-bold text-slate-800 mb-2">Akses Cepat</h4>
+                                <p class="text-sm text-slate-500 leading-relaxed">Kecepatan akses tanpa hambatan dengan server berbasis cloud super cepat.</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
+                                <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center mb-4">
+                                    <i class="icon-settings text-2xl"></i>
+                                </div>
+                                <h4 class="font-bold text-slate-800 mb-2">Mudah Dikustomisasi</h4>
+                                <p class="text-sm text-slate-500 leading-relaxed">Ubah tampilan sesuai keinginan dengan pengaturan yang fleksibel.</p>
+                            </div>
+                        </div>
+                        <!-- Template UI End -->
+                    </div>
+                    <div id="template-web-features" class="hidden">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 bg-slate-50">
+    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
+        <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4">
+            <i class="icon-shield text-2xl"></i>
+        </div>
+        <h4 class="font-bold text-slate-800 mb-2">Keamanan Tinggi</h4>
+        <p class="text-sm text-slate-500 leading-relaxed">Sistem dilindungi dengan enkripsi mutakhir untuk menjaga privasi Anda.</p>
+    </div>
+    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
+        <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4">
+            <i class="icon-check text-2xl"></i>
+        </div>
+        <h4 class="font-bold text-slate-800 mb-2">Akses Cepat</h4>
+        <p class="text-sm text-slate-500 leading-relaxed">Kecepatan akses tanpa hambatan dengan server berbasis cloud super cepat.</p>
+    </div>
+    <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-shadow">
+        <div class="w-12 h-12 rounded-xl bg-orange-50 text-orange-500 flex items-center justify-center mb-4">
+            <i class="icon-settings text-2xl"></i>
+        </div>
+        <h4 class="font-bold text-slate-800 mb-2">Mudah Dikustomisasi</h4>
+        <p class="text-sm text-slate-500 leading-relaxed">Ubah tampilan sesuai keinginan dengan pengaturan yang fleksibel.</p>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section: Mobile Templates -->
+        <div>
+            <div class="flex items-center gap-4 mb-10">
+                <div class="w-10 h-10 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                </div>
+                <h2 class="text-2xl font-extrabold text-slate-800">Mobile Apps Templates</h2>
+                <div class="flex-1 h-px bg-slate-200 ml-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-12 justify-items-center">
 
             <!-- 1. Bottom Navigation Bar -->
             <div class="flex flex-col items-center gap-6 w-full max-w-md">
