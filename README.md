@@ -1,10 +1,14 @@
 # NusaIcons 🎨✨
 
 **Ikon yang Didesain untuk Keseriusan.**  
-NusaIcons adalah pustaka ikon *open-source* modern dan ringan yang dirancang dengan teknik **CSS Masking**. Ikon-ikon ini mewarisi warna dari *parent text* (`currentColor`) sehingga sangat fleksibel dan mudah digunakan di segala framework UI, termasuk Tailwind CSS.
+NusaIcons adalah pustaka ikon *open-source* modern dan ringan yang dirancang dengan teknik **CSS Masking**.
+
+🌐 **Live Site:** [https://amrunamv.github.io/nusaicon/](https://amrunamv.github.io/nusaicon/)  
+📦 **Demo Penggunaan:** [https://amrunamv.github.io/nusaicon/demo.html](https://amrunamv.github.io/nusaicon/demo.html)
 
 ![NusaIcons Banner](https://img.shields.io/badge/NusaIcons-v1.0-4f46e5?style=for-the-badge&logo=appveyor)
 ![CSS](https://img.shields.io/badge/Pure_CSS-Yes-emerald?style=for-the-badge)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Live-brightgreen?style=for-the-badge&logo=github)
 
 ## 🚀 Instalasi Cepat (via CDN)
 
