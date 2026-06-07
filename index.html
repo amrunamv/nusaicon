@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NusaIcons - Pustaka Ikon Profesional</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5', // Indigo-600
+                        'primary-hover': '#4338ca', // Indigo-700
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Impor Font Inter untuk tampilan lebih profesional */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        /* Scrollbar Halus & Modern */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* Animasi Transisi Halus */
+        .card-hover-effect {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.08);
+            border-color: #c7d2fe; /* indigo-200 */
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans h-screen flex flex-col overflow-hidden antialiased">
+
+    <!-- Top Navigation (Header - Glassmorphism) -->
+    <header class="bg-white/80 backdrop-blur-md border-b border-slate-200 h-16 flex-none flex items-center justify-between px-4 sm:px-8 relative z-30">
+        <div class="flex items-center gap-3">
+            <!-- Logo Modern -->
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 flex items-center justify-center shadow-sm shadow-indigo-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            <span class="font-bold text-lg tracking-tight text-slate-900">NusaIcons <span class="text-[10px] font-semibold bg-indigo-100 text-indigo-700 px-1.5 py-0.5 rounded-md ml-1 align-middle">v1.0</span></span>
+        </div>
+        <nav class="flex items-center gap-6">
+            <button id="openDocsBtn" class="text-sm font-medium text-slate-500 hover:text-indigo-600 transition-colors hidden sm:block flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                Dokumentasi Lengkap
+            </button>
+            <a href="https://github.com/amrunamv/nusaicon" target="_blank" rel="noopener noreferrer" class="text-sm font-medium flex items-center gap-2 px-3 py-1.5 rounded-md border border-slate-200 bg-white hover:bg-slate-50 hover:text-slate-900 text-slate-600 transition-all shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                GitHub
+            </a>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="flex flex-1 overflow-hidden relative">
+        
+        <!-- Sidebar (Kiri) - Hanya muncul di tablet/desktop -->
+        <aside class="w-64 bg-slate-50/50 border-r border-slate-200 hidden md:flex flex-col flex-none overflow-y-auto relative z-10">
+            <div class="p-6">
+                <h3 class="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-4">Kategori</h3>
+                <ul id="categorySidebar" class="space-y-1.5">
+                    <!-- Kategori di-render via JS -->
+                </ul>
+            </div>
+            
+            <div class="mt-auto p-6">
+                <div class="bg-indigo-50/50 rounded-xl border border-indigo-100/50 p-4">
+                    <h3 class="text-[11px] font-bold text-indigo-800 uppercase tracking-wide mb-2 flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        Instalasi Cepat
+                    </h3>
+                    <p class="text-xs text-indigo-600/80 mb-3 leading-relaxed">Pasang stylesheet ini di bagian &lt;head&gt; HTML Anda.</p>
+                    <div class="bg-white rounded-lg border border-indigo-100 p-2 text-[10px] text-slate-600 font-mono break-all cursor-pointer hover:border-indigo-300 hover:shadow-sm transition-all" onclick="copyText('<link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/amrunamv/nusaicon@main/nusaicons.css&quot;>', 'CDN link')" title="Klik untuk menyalin">
+                        &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amrunamv/nusaicon@main/nusaicons.css"&gt;
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Workspace (Kanan) -->
+        <main class="flex-1 flex flex-col min-w-0 bg-white overflow-hidden relative z-0">
+            
+            <!-- Area Pencarian & Hero Premium -->
+            <div class="flex-none bg-white border-b border-slate-100 px-6 pt-10 pb-8 sm:px-10 z-20 relative overflow-hidden">
+                <!-- Decorative background blob -->
+                <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-indigo-50 blur-3xl opacity-70"></div>
+                
+                <div class="max-w-2xl mx-auto flex flex-col gap-6 relative z-10">
+                    
+                    <!-- Hero Text -->
+                    <div class="text-center mb-2">
+                        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">Ikon yang Didesain untuk <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-violet-500">Keseriusan</span>.</h1>
+                        <p class="text-slate-500 text-sm sm:text-base leading-relaxed">Pustaka ikon open-source ringan dengan dukungan <code class="bg-slate-100 text-indigo-600 px-1.5 py-0.5 rounded text-xs font-mono">currentColor</code> untuk pewarnaan dinamis. Salin, tempel, dan selesai.</p>
+                    </div>
+
+                    <div class="relative group">
+                        <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-primary text-slate-400">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        </div>
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Cari ikon (misal: user, home, setelan)..."
+                            class="w-full pl-12 pr-12 py-4 bg-slate-50 hover:bg-slate-100 border border-slate-200 rounded-2xl text-slate-800 text-base placeholder-slate-400 focus:bg-white focus:outline-none focus:border-primary focus:ring-4 focus:ring-indigo-500/10 transition-all shadow-sm"
+                        >
+                        <!-- Keyboard shortcut hint -->
+                        <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                            <kbd class="hidden sm:inline-block px-2 py-1 text-[10px] font-semibold text-slate-400 bg-white border border-slate-200 rounded-md shadow-sm">⌘K</kbd>
+                        </div>
+                    </div>
+                    
+                    <!-- Kategori Mobile (Hanya muncul di HP) -->
+                    <div id="categoryMobile" class="flex md:hidden overflow-x-auto hide-scrollbar gap-2 pb-2">
+                        <!-- Kategori mobile via JS -->
+                    </div>
+                    
+                    <div class="flex items-center justify-between text-sm text-slate-500 font-medium px-1">
+                        <span id="resultCount">Menampilkan 40 Ikon</span>
+                        <span class="hidden sm:inline-block text-xs text-slate-400 bg-slate-50 px-3 py-1 rounded-full border border-slate-100">Klik kartu untuk menyalin HTML</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Area Grid Ikon (Scrollable) -->
+            <div class="flex-1 overflow-y-auto px-6 py-8 sm:px-10 bg-[#fafafa]">
+                <div class="max-w-7xl mx-auto">
+                    <div id="iconGrid" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 pb-24">
+                        <!-- Ikon di-render via JS -->
+                    </div>
+
+                    <!-- State Kosong -->
+                    <div id="emptyState" class="hidden flex-col items-center justify-center py-20 text-center max-w-sm mx-auto">
+                        <div class="w-16 h-16 bg-white border border-slate-100 shadow-sm rounded-2xl flex items-center justify-center mb-5 text-slate-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        </div>
+                        <h3 class="text-base font-semibold text-slate-800 mb-1">Tidak ada hasil ditemukan</h3>
+                        <p class="text-sm text-slate-500">Kami tidak dapat menemukan ikon yang cocok dengan pencarian Anda. Coba kata kunci yang lebih umum.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Dokumentasi -->
+    <div id="docsModal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div id="docsBackdrop" class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity opacity-0"></div>
+        
+        <!-- Modal Panel -->
+        <div class="absolute inset-y-0 right-0 w-full max-w-xl bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col" id="docsPanel">
+            <div class="flex items-center justify-between px-6 py-5 border-b border-slate-100">
+                <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    Dokumentasi NusaIcons
+                </h2>
+                <button id="closeDocsBtn" class="text-slate-400 hover:text-slate-700 bg-slate-50 hover:bg-slate-100 p-2 rounded-full transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            
+            <div class="flex-1 overflow-y-auto p-6 text-slate-600 text-sm leading-relaxed space-y-8">
+                <!-- Section 1 -->
+                <section>
+                    <h3 class="text-base font-bold text-slate-800 mb-3 flex items-center gap-2">1. Instalasi (CDN)</h3>
+                    <p class="mb-3">Untuk mulai menggunakan ikon, masukkan tag <code class="font-mono text-xs bg-slate-100 px-1 py-0.5 rounded text-slate-800">&lt;link&gt;</code> berikut ke dalam blok <code class="font-mono text-xs bg-slate-100 px-1 py-0.5 rounded text-slate-800">&lt;head&gt;</code> dokumen HTML Anda:</p>
+                    <div class="bg-slate-900 rounded-lg p-4 relative group">
+                        <code class="text-emerald-400 font-mono text-[11px] block break-all">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/amrunamv/nusaicon@main/nusaicons.css"&gt;</code>
+                    </div>
+                </section>
+
+                <!-- Section 2 -->
+                <section>
+                    <h3 class="text-base font-bold text-slate-800 mb-3 flex items-center gap-2">2. Cara Penggunaan</h3>
+                    <p class="mb-3">Gunakan tag <code class="font-mono text-xs bg-slate-100 px-1 py-0.5 rounded text-slate-800">&lt;i&gt;</code> atau <code class="font-mono text-xs bg-slate-100 px-1 py-0.5 rounded text-slate-800">&lt;span&gt;</code> dengan class awalan <code class="font-mono text-xs bg-slate-100 px-1 py-0.5 rounded text-indigo-600">icon-{nama-ikon}</code>. Ikon akan otomatis seukuran dengan teks di sekitarnya karena menggunakan satuan <code class="font-mono text-xs bg-slate-100 px-1 py-0.5 rounded text-slate-800">1em</code>.</p>
+                    <div class="bg-slate-50 border border-slate-200 rounded-lg p-4">
+                        <p class="text-slate-800 font-medium mb-2">Contoh Dasar:</p>
+                        <code class="text-indigo-600 font-mono text-[12px] block bg-white p-2 border border-slate-100 rounded">&lt;button&gt; &lt;i class="icon-download"&gt;&lt;/i&gt; Unduh File &lt;/button&gt;</code>
+                    </div>
+                </section>
+
+                <!-- Section 3 -->
+                <section>
+                    <h3 class="text-base font-bold text-slate-800 mb-3 flex items-center gap-2">3. Mewarnai & Mengubah Ukuran</h3>
+                    <p class="mb-3">NusaIcons dibuat menggunakan teknik <strong>CSS Masking</strong>, sehingga ikon akan selalu mewarisi warna dari atribut <code class="font-mono text-xs bg-slate-100 px-1 py-0.5 rounded text-slate-800">color</code> milik induknya (currentColor).</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-4">
+                            <h4 class="font-bold text-slate-700 text-xs uppercase mb-2">Via Tailwind CSS</h4>
+                            <code class="text-slate-600 font-mono text-[11px] block">&lt;i class="icon-heart <span class="text-rose-500">text-rose-500 text-3xl</span>"&gt;&lt;/i&gt;</code>
+                        </div>
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-4">
+                            <h4 class="font-bold text-slate-700 text-xs uppercase mb-2">Via CSS Biasa</h4>
+                            <code class="text-slate-600 font-mono text-[11px] block">.icon-heart {<br>&nbsp;&nbsp;color: #f43f5e;<br>&nbsp;&nbsp;font-size: 30px;<br>}</code>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Footer modal -->
+                <div class="pt-6 border-t border-slate-100 text-center">
+                    <p class="text-xs text-slate-400">Desain 3D Tech & Dokumentasi v1.0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Minimalis -->
+    <div id="toast" class="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-slate-900/95 backdrop-blur-md text-white px-5 py-3 rounded-2xl shadow-2xl shadow-slate-900/20 font-medium text-sm flex items-center gap-3 transition-all duration-300 z-50 translate-y-12 opacity-0 pointer-events-none border border-slate-700/50">
+        <div class="w-7 h-7 rounded-full bg-emerald-500/20 flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-400"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="flex flex-col">
+            <span id="toastMessage" class="text-slate-100 text-[13px] font-mono">&lt;i class="icon-name"&gt;&lt;/i&gt;</span>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Data Ikon V1.0
+        const icons = [
+            { name: 'home', category: 'Navigasi', path: '<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>' },
+            { name: 'menu', category: 'Navigasi', path: '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>' },
+            { name: 'search', category: 'Navigasi', path: '<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>' },
+            { name: 'arrow-left', category: 'Navigasi', path: '<path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>' },
+            { name: 'arrow-right', category: 'Navigasi', path: '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>' },
+            { name: 'chevron-down', category: 'Navigasi', path: '<path d="m6 9 6 6 6-6"/>' },
+            { name: 'close', category: 'Navigasi', path: '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>' },
+            { name: 'check', category: 'Navigasi', path: '<polyline points="20 6 9 17 4 12"/>' },
+            { name: 'user', category: 'User', path: '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>' },
+            { name: 'users', category: 'User', path: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>' },
+            { name: 'lock', category: 'User', path: '<rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>' },
+            { name: 'plus', category: 'Sistem', path: '<path d="M5 12h14"/><path d="M12 5v14"/>' },
+            { name: 'trash', category: 'Sistem', path: '<path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><line x1="10" x2="10" y1="11" y2="17"/><line x1="14" x2="14" y1="11" y2="17"/>' },
+            { name: 'edit', category: 'Sistem', path: '<path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>' },
+            { name: 'folder', category: 'Sistem', path: '<path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/>' },
+            { name: 'shopping-cart', category: 'Umum', path: '<circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>' },
+            { name: 'star', category: 'Umum', path: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>' },
+            { name: 'bell', category: 'Umum', path: '<path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/>' },
+            { name: 'settings', category: 'Sistem', path: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>' },
+            { name: 'heart', category: 'Umum', path: '<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>' },
+            { name: 'mail', category: 'Umum', path: '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>' },
+            { name: 'camera', category: 'Umum', path: '<path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>' },
+            { name: 'calendar', category: 'Sistem', path: '<rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/>' },
+            { name: 'map-pin', category: 'Navigasi', path: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>' },
+            { name: 'download', category: 'Sistem', path: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>' },
+            { name: 'upload', category: 'Sistem', path: '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/>' },
+            { name: 'printer', category: 'Sistem', path: '<polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/>' },
+            { name: 'share', category: 'Umum', path: '<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/>' },
+            { name: 'link', category: 'Sistem', path: '<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>' },
+            { name: 'eye', category: 'Umum', path: '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>' },
+            { name: 'eye-off', category: 'Umum', path: '<path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" x2="22" y1="2" y2="22"/>' },
+            { name: 'image', category: 'Media', path: '<rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>' },
+            { name: 'video', category: 'Media', path: '<polygon points="23 7 16 12 23 17 23 7"/><rect width="15" height="14" x="1" y="5" rx="2" ry="2"/>' },
+            { name: 'shield', category: 'Sistem', path: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>' },
+            { name: 'alert-circle', category: 'Sistem', path: '<circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/>' },
+            { name: 'info', category: 'Sistem', path: '<circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="16" y2="12"/><line x1="12" x2="12.01" y1="8" y2="8"/>' },
+            { name: 'sun', category: 'Sistem', path: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>' },
+            { name: 'moon', category: 'Sistem', path: '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>' }
+        ];
+
+        const categories = ['Semua', ...new Set(icons.map(icon => icon.category))];
+        let currentCategory = 'Semua';
+        let currentSearch = '';
+
+        const iconGrid = document.getElementById('iconGrid');
+        const emptyState = document.getElementById('emptyState');
+        const categorySidebar = document.getElementById('categorySidebar');
+        const categoryMobile = document.getElementById('categoryMobile');
+        const searchInput = document.getElementById('searchInput');
+        const resultCount = document.getElementById('resultCount');
+        const toast = document.getElementById('toast');
+        const toastMessage = document.getElementById('toastMessage');
+
+        // Modal Elements
+        const docsModal = document.getElementById('docsModal');
+        const docsBackdrop = document.getElementById('docsBackdrop');
+        const docsPanel = document.getElementById('docsPanel');
+        const openDocsBtn = document.getElementById('openDocsBtn');
+        const closeDocsBtn = document.getElementById('closeDocsBtn');
+
+        // Logic Modal Dokumentasi
+        function toggleDocs(show) {
+            if (show) {
+                docsModal.classList.remove('hidden');
+                // Trigger reflow
+                void docsModal.offsetWidth;
+                docsBackdrop.classList.remove('opacity-0');
+                docsBackdrop.classList.add('opacity-100');
+                docsPanel.classList.remove('translate-x-full');
+            } else {
+                docsBackdrop.classList.remove('opacity-100');
+                docsBackdrop.classList.add('opacity-0');
+                docsPanel.classList.add('translate-x-full');
+                setTimeout(() => {
+                    docsModal.classList.add('hidden');
+                }, 300); // match transition duration
+            }
+        }
+
+        openDocsBtn.addEventListener('click', () => toggleDocs(true));
+        closeDocsBtn.addEventListener('click', () => toggleDocs(false));
+        docsBackdrop.addEventListener('click', () => toggleDocs(false));
+
+        // Render Kategori (Sidebar Desktop & Scroll Mobile)
+        function renderCategories() {
+            // Render Sidebar Desktop
+            categorySidebar.innerHTML = categories.map(cat => {
+                const count = cat === 'Semua' ? icons.length : icons.filter(i => i.category === cat).length;
+                const isActive = currentCategory === cat;
+                return `
+                    <li>
+                        <button onclick="setCategory('${cat}')" 
+                            class="w-full flex items-center justify-between px-3 py-2 rounded-xl text-[13px] font-medium transition-all duration-200 ${isActive ? 'bg-indigo-50 text-primary border border-indigo-100/50 shadow-sm' : 'text-slate-600 hover:bg-slate-100/50 hover:text-slate-900 border border-transparent'}">
+                            <span>${cat}</span>
+                            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md ${isActive ? 'bg-indigo-100/80 text-primary' : 'bg-slate-200/50 text-slate-500'}">${count}</span>
+                        </button>
+                    </li>
+                `;
+            }).join('');
+
+            // Render Mobile Pills
+            categoryMobile.innerHTML = categories.map(cat => {
+                const isActive = currentCategory === cat;
+                return `
+                    <button onclick="setCategory('${cat}')" 
+                        class="flex-none px-4 py-1.5 rounded-full text-xs font-medium border transition-colors ${isActive ? 'bg-slate-800 text-white border-slate-800' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'}">
+                        ${cat}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        // Render Ikon Grid
+        function renderIcons() {
+            const filteredIcons = icons.filter(icon => {
+                const matchCategory = currentCategory === 'Semua' || icon.category === currentCategory;
+                const matchSearch = icon.name.toLowerCase().includes(currentSearch.toLowerCase());
+                return matchCategory && matchSearch;
+            });
+
+            resultCount.innerText = `${filteredIcons.length} Ikon`;
+
+            if (filteredIcons.length === 0) {
+                iconGrid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                emptyState.classList.add('flex');
+            } else {
+                emptyState.classList.add('hidden');
+                emptyState.classList.remove('flex');
+                
+                iconGrid.innerHTML = filteredIcons.map(icon => `
+                    <button onclick="copyIcon('${icon.name}', this)" class="card-hover-effect group relative flex flex-col items-center justify-center p-6 h-[110px] bg-white border border-slate-200/80 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary" title="Salin &lt;i class='icon-${icon.name}'&gt;&lt;/i&gt;">
+                        
+                        <!-- Wujud Ikon Asli -->
+                        <div class="icon-visual text-slate-500 group-hover:text-primary transition-colors duration-300 mb-3 group-hover:scale-110 transform">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icon.path}</svg>
+                        </div>
+                        
+                        <!-- Wujud Sukses (Centang) -->
+                        <div class="icon-success hidden text-emerald-500 mb-3 animate-[bounce_0.3s_ease-in-out]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        </div>
+                        
+                        <span class="icon-label text-[11px] font-medium text-slate-400 group-hover:text-slate-700 truncate w-full text-center transition-colors">
+                            ${icon.name}
+                        </span>
+                    </button>
+                `).join('');
+            }
+        }
+
+        window.setCategory = (cat) => {
+            currentCategory = cat;
+            renderCategories();
+            renderIcons();
+            // Scroll ke atas grid saat kategori berubah
+            document.querySelector('.overflow-y-auto').scrollTo({top: 0, behavior: 'smooth'});
+        };
+
+        window.copyText = (text, label) => {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(`Tag tersalin ke clipboard`);
+            }).catch(() => {
+                fallbackCopy(text);
+                showToast(`Tag tersalin ke clipboard`);
+            });
+        };
+
+        window.copyIcon = (iconName, buttonElement) => {
+            const htmlTag = `<i class="icon-${iconName}"></i>`;
+            
+            // Animasi UX Premium Langsung di Kartu
+            const visual = buttonElement.querySelector('.icon-visual');
+            const success = buttonElement.querySelector('.icon-success');
+            const label = buttonElement.querySelector('.icon-label');
+            const originalText = label.innerText;
+
+            visual.classList.add('hidden');
+            success.classList.remove('hidden');
+            label.innerText = 'Disalin!';
+            label.classList.add('text-emerald-500', 'font-semibold');
+            buttonElement.classList.add('border-emerald-200', 'bg-emerald-50/30');
+
+            setTimeout(() => {
+                visual.classList.remove('hidden');
+                success.classList.add('hidden');
+                label.innerText = originalText;
+                label.classList.remove('text-emerald-500', 'font-semibold');
+                buttonElement.classList.remove('border-emerald-200', 'bg-emerald-50/30');
+            }, 1200);
+
+            // Proses Salin & Toast Tengah Bawah
+            navigator.clipboard.writeText(htmlTag).then(() => {
+                showToast(htmlTag);
+            }).catch(() => {
+                fallbackCopy(htmlTag);
+                showToast(htmlTag);
+            });
+        };
+
+        function fallbackCopy(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+        }
+
+        let toastTimeout;
+        function showToast(tagCode) {
+            // Encode tag HTML
+            const safeCode = tagCode.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            toastMessage.innerHTML = safeCode;
+            
+            toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-12', 'opacity-0', 'pointer-events-none');
+            }, 3000);
+        }
+
+        // Shortcut keyboard Command+K (atau Ctrl+K) untuk fokus ke pencarian
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+
+        // Event Listeners Pencarian
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value;
+            renderIcons();
+        });
+
+        // Inisialisasi awal
+        renderCategories();
+        renderIcons();
+    </script>
+</body>
+</html>
